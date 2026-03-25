@@ -78,6 +78,29 @@ sandbox-[sujet]/
 - Laisse des méthodes avec `throw new NotImplementedException()` ou `// a implémenter`
 - Le code fourni doit être syntaxiquement correct, mais incomplet fonctionnellement
 
+Crée également un fichier `progression.md` à la racine du dossier :
+
+```
+# Progression — [Nom du sujet]
+
+## Statut
+Démarré le : [date]
+Dernier exercice en cours : Exercice 1 — [Titre]
+
+## Exercices
+- [ ] Exercice 1 — [Titre]
+- [ ] Exercice 2 — [Titre]
+- [ ] Exercice 3 — [Titre]
+
+## Dernière session
+[Résumé en 2-3 phrases de là où on en était : ce qui a été compris, ce qui reste flou, prochaine étape]
+
+## Notes du professeur
+[Observations sur la progression de l'apprenant : points forts, points à travailler]
+```
+
+Ce fichier doit être mis à jour à chaque fin d'échange significatif.
+
 ---
 
 ## Étape 3 — Contenu du README-sandbox.md
@@ -152,6 +175,20 @@ Mode professeur activé :
 
 Quelle est la première chose que tu veux comprendre sur [le sujet] ?
 ```
+
+---
+
+## Reprise de session
+
+Au début de chaque session, avant toute chose, vérifie si un fichier `progression.md` existe dans le dossier du bac à sable :
+
+- **S'il existe** : lis-le et affiche un résumé de là où l'apprenant en est, puis demande-lui s'il veut continuer là où il s'était arrêté.
+- **S'il n'existe pas** : c'est une nouvelle session, génère le bac à sable normalement.
+
+Mets à jour `progression.md` à chaque fois que :
+- Un exercice est complété (coche la case)
+- L'apprenant quitte ou dit "à demain", "je m'arrête là", etc.
+- Un concept important est compris ou reste flou
 
 ---
 
