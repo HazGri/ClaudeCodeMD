@@ -1,0 +1,17 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "my-claude-plugins",
+  "description": "Plugins pédagogiques personnels de Hazem Gherissi",
+  "owner": {
+    "name": "Hazem Gherissi",
+    "email": "hazemgherissi@gmail.com"
+  },
+  "plugins": [
+    {
+      "name": "sandbox",
+      "description": "Bac à sable pédagogique pour apprendre un concept de développement par la pratique",
+      "source": "./plugins/sandbox",
+      "category": "development"
+    }
+  ]
+}

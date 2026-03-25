@@ -1,0 +1,11 @@
+{
+  "name": "my-claude-plugins",
+  "description": "Plugins pédagogiques personnels",
+  "plugins": [
+    {
+      "name": "sandbox",
+      "path": "plugins/sandbox",
+      "description": "Bac à sable pédagogique pour apprendre un concept de développement par la pratique"
+    }
+  ]
+}
