@@ -43,21 +43,52 @@ Crée un dossier `sandbox-[nom-du-sujet-en-kebab-case]/` dans le répertoire cou
 
 ### Structure pour un sujet ASP.NET Core :
 
+**Commence toujours par initialiser une vraie solution .NET buildable avec ces commandes dans l'ordre :**
+
+```bash
+mkdir sandbox-[sujet] && cd sandbox-[sujet]
+
+# Projet principal
+dotnet new classlib -n [Sujet].Core -o src/[Sujet].Core
+
+# Projet de tests
+dotnet new xunit -n [Sujet].Tests -o tests/[Sujet].Tests
+
+# Solution
+dotnet new sln -n [Sujet]
+dotnet sln add src/[Sujet].Core/[Sujet].Core.csproj
+dotnet sln add tests/[Sujet].Tests/[Sujet].Tests.csproj
+
+# Référence du projet de tests vers le projet principal
+dotnet add tests/[Sujet].Tests/[Sujet].Tests.csproj reference src/[Sujet].Core/[Sujet].Core.csproj
+
+# Packages de test courants
+dotnet add tests/[Sujet].Tests package Moq
+dotnet add tests/[Sujet].Tests package FluentAssertions
+```
+
+La structure finale doit ressembler à :
+
 ```
 sandbox-[sujet]/
-├── Models/
-│   └── [Entite].cs              <- modèle simple, déjà fourni
-├── Repositories/
-│   └── I[Entite]Repository.cs   <- interface fournie
-│   └── [Entite]Repository.cs    <- implémentation partielle
-├── Services/
-│   └── [Entite]Service.cs       <- à compléter par l'apprenant
-├── Controllers/
-│   └── [Entite]Controller.cs    <- squelette fourni
-├── Tests/
-│   └── [Entite]ServiceTests.cs  <- tests à écrire
+├── src/
+│   └── [Sujet].Core/
+│       ├── Models/
+│       │   └── [Entite].cs              <- modèle simple, déjà fourni
+│       ├── Repositories/
+│       │   ├── I[Entite]Repository.cs   <- interface fournie
+│       │   └── [Entite]Repository.cs    <- implémentation partielle
+│       └── Services/
+│           └── [Entite]Service.cs       <- à compléter par l'apprenant
+├── tests/
+│   └── [Sujet].Tests/
+│       └── [Entite]ServiceTests.cs      <- tests à écrire
+├── [Sujet].sln
+├── progression.md
 └── README-sandbox.md
 ```
+
+Vérifie que `dotnet build` passe sans erreur avant de passer à l'étape suivante.
 
 ### Structure pour un sujet React :
 
